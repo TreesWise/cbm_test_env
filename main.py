@@ -566,6 +566,12 @@ async def smart_maintenance(userinput: pdm_inputs, current_user: User = Depends(
                     # if ('Blow-by in combustion chamber' == fault_cats)&(engs_cyl=='Cyl_5'):
                     if 'Blow-by in combustion chamber' == fault_cats:
                         new_f['fault_status'] = '0'
+                    if 'Injection System Fault' == fault_cats:    
+                        new_f['fault_status'] = '0'
+                    if 'Start of Injection Fault' == fault_cats:    
+                        new_f['fault_status'] = '0'    
+                    if 'Exhaust Valve Fault' == fault_cats:    
+                        new_f['fault_status'] = '0'
                     trigger = exists_consecutively(new_f['fault_status'],'0')
                     if trigger == True:
                         upload_date  = datetime.now().strftime("%Y-%m-%d")
