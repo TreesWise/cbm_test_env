@@ -18,7 +18,7 @@ from datetime import datetime
 import time
 import os
 
-import torch
+# import torch
 # from AE_ import data_load_preprocess, Transform_data, AE, recreation_loss
 
 
@@ -53,7 +53,7 @@ with open('data_collect_dict.pickle','rb') as file2:
 
 # #model weight loading
 # model = AE()
-# model.load_state_dict(torch.load(utility_dict['AE_path'], map_location=torch.device('cpu')))
+# model.load_state_dict(.load(utility_dict['AE_path'], map_location=.device('cpu')))
 # model.eval()
 #TS model loading
 ts_model =  utility_dict['TS_model_path']#load ts model here
@@ -201,7 +201,7 @@ async def forecast_14days(current_user: User = Depends(get_current_active_user))
         # df_norm_obj_test = Transform_data(df)
         # df_norm_test = df_norm_obj_test.normalize()
         # #final data for model
-        # df_tensor_test = torch.tensor(df_norm_test.values, dtype=torch.float32)
+        # df_tensor_test = .tensor(df_norm_test.values, dtype=.float32)
         # recreated_df_test = model(df_tensor_test).cpu().detach().numpy()
         # base_data_test = df_tensor_test.cpu().detach().numpy()
         # faulty_date = recreation_loss(base_data_test, recreated_df_test)
