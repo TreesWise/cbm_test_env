@@ -712,7 +712,11 @@ async def smart_maintenance(userinput: pdm_inputs, current_user: User = Depends(
             return {}        
         else:
             api_format['totalRecords'] = len(api_format['surveys'])  
+            for survey in api_format['surveys']:
+                survey['sysCustom_2'] = int(survey['sysCustom_2'])
+                survey['sysCustom_3'] = int(survey['sysCustom_3'])
             return {'status':200,'data':api_format}        
-    except:
+    except Exception as rel:
+        print(rel)
         print('result file not found')
         return {}         
